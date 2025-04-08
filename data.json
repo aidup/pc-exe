@@ -1,0 +1,152 @@
+[
+  {
+    "name": "图吧工具箱",
+    "icon-url": "https://img.3dmgame.com/uploads/images/thumbnews/20241031/1730344674_292904.jpg",
+    "introduction": "集成化硬件检测与系统维护工具集",
+    "category": ["系统工具>硬件检测"],
+    "baidu": "https://pan.baidu.com/s/1bKUHogXNn-GPgu5KLa-RoA?pwd=mfe6",
+    "quark": "https://pan.quark.cn/s/73e102b42ba1"
+  },
+  {
+    "name": "win右键菜单管理",
+    "icon-url": "",
+    "introduction": "Windows系统右键菜单项定制管理工具",
+    "category": ["系统工具>系统优化"],
+    "baidu": "https://pan.baidu.com/s/1VcYA0hVZAwB7HwGP4hxXDQ?pwd=rrd3",
+    "quark": "https://pan.quark.cn/s/0819a90626a1"
+  },
+  {
+    "name": "风扇控制 Fan Control",
+    "icon-url": "https://github.com/Rem0o/FanControl.Releases/raw/master/Images/logo.gif",
+    "introduction": "精准调节PC风扇转速的硬件控制软件",
+    "category": ["系统工具>硬件管理"],
+    "baidu": "https://pan.baidu.com/s/1ofBs4i_EVwaAZ6OAkYaESw?pwd=3nwx",
+    "quark": "https://pan.quark.cn/s/332282335c95"
+  },
+  {
+    "name": "显卡驱动卸载工具v18.1.0.0绿色版",
+    "icon-url": "",
+    "introduction": "彻底清除NVIDIA/AMD显卡驱动的专业工具",
+    "category": ["系统工具>驱动管理"],
+    "baidu": "https://pan.baidu.com/s/1d5zNsv8EONrELcnNik-p4A?pwd=uxk5",
+    "quark": "https://pan.quark.cn/s/6434373b927f"
+  },
+  {
+    "name": "Windows11轻松设置1.11Beta",
+    "icon-url": "",
+    "introduction": "一站式Win11系统功能优化与组件管理工具",
+    "category": ["系统工具>系统优化"],
+    "quark": "https://pan.quark.cn/s/bcfc23d5a927"
+  },
+  {
+    "name": "Lossless Scaling",
+    "icon-url": "",
+    "introduction": "游戏画面无损放大与帧率提升工具",
+    "category": ["多媒体工具>图形增强"],
+    "quark": "https://pan.quark.cn/s/9d7f3048068a"
+  },
+  {
+    "name": "Watt Toolkit (原名 Steam++)",
+    "icon-url": "",
+    "introduction": "多平台游戏加速与社区功能增强工具",
+    "category": ["网络工具>游戏加速"],
+    "quark": "https://pan.quark.cn/s/2f6489609b86"
+  },
+  {
+    "name": "TrafficMonitor系统监控v1.85.1",
+    "icon-url": "",
+    "introduction": "实时显示网速/CPU/内存占用率的任务栏监控工具",
+    "category": ["系统工具>系统监控"],
+    "quark": "https://pan.quark.cn/s/e0c65eb9669f"
+  },
+  {
+    "name": "OncePower文件批量重命名神器",
+    "icon-url": "",
+    "introduction": "支持正则表达式的高级文件批量重命名工具",
+    "category": ["实用工具>文件管理"],
+    "quark": "https://pan.quark.cn/s/8a6a83cd1c35"
+  },
+  {
+    "name": "HEU KMS激活工具42.0.3",
+    "icon-url": "",
+    "introduction": "Windows/Office全系列智能激活工具",
+    "category": ["系统工具>软件管理"],
+    "quark": "https://pan.quark.cn/s/afbcd2fadfca"
+  },
+  {
+    "name": "IrfanView看图",
+    "icon-url": "",
+    "introduction": "轻量级高速图片查看与格式转换工具",
+    "category": ["多媒体工具>图像处理"],
+    "baidu": "https://pan.baidu.com/s/1WXl6IFoOuhZ4l2zoSDKgzA?pwd=ubeb",
+    "quark": "https://pan.quark.cn/s/4639bba3f397"
+  },
+  {
+    "name": "WechatRealFriends 微信好友关系检测",
+    "icon-url": "",
+    "introduction": "快速检测微信好友关系状态的实用工具",
+    "category": ["实用工具>社交辅助"],
+    "quark": "https://pan.quark.cn/s/9114411f81cd"
+  },
+  {
+    "name": "PanTools多网盘批量管理",
+    "icon-url": "",
+    "introduction": "支持百度/夸克/阿里云盘的多账号文件管理工具",
+    "category": ["系统工具>文件处理"],
+    "quark": "https://pan.quark.cn/s/8b5dbac9a424"
+  },
+  {
+    "name": "mGBA(GBA模拟器) v0.10.5",
+    "icon-url": "",
+    "introduction": "高精度任天堂GBA掌机模拟器，支持即时存档",
+    "category": ["游戏工具>模拟器"],
+    "quark": "https://pan.quark.cn/s/08b5b6340028"
+  },
+  {
+    "name": "Topaz AI视频修复工具",
+    "icon-url": "",
+    "introduction": "基于AI算法的视频画质增强与分辨率提升工具",
+    "category": ["多媒体工具>视频处理"],
+    "quark": "https://pan.quark.cn/s/f032643e650e"
+  },
+  {
+    "name": "steam游戏平台安装包",
+    "icon-url": "",
+    "introduction": "全球最大的数字游戏分发平台客户端",
+    "category": ["游戏工具>平台工具"],
+    "baidu": "https://pan.baidu.com/s/1NwIMn_agG0c8K0gZD68eJw?pwd=5xn2",
+    "quark": ""
+  },
+  {
+    "name": "7-Zip",
+    "icon-url": "",
+    "introduction": "高效的文件压缩与解压工具，支持60+种格式",
+    "category": ["系统工具>文件处理"],
+    "baidu": "https://pan.baidu.com/s/1XbUsivbKPPjEH7PRwC68jQ?pwd=k4v6",
+    "quark": "https://pan.quark.cn/s/77408c6be6c3"
+  },
+  {
+    "name": "VisualCppRedist运行库合集",
+    "icon-url": "",
+    "introduction": "Windows系统必备的C++运行环境组件包",
+    "category": ["系统工具>运行环境"],
+    "baidu": "https://pan.baidu.com/s/12e7tnM3x29czJy6keTlNVQ?pwd=8ujm",
+    "quark": "https://pan.quark.cn/s/49a2ffc1a10e"
+  },
+  {
+    "name": "Everything文件搜索工具v1.4.1",
+    "icon-url": "",
+    "introduction": "基于NTFS索引的极速本地文件搜索工具",
+    "category": ["实用工具>效率提升"],
+    "baidu": "https://pan.baidu.com/s/1dzb2UTfO5Bzlfmwefu2U9A?pwd=mqhg",
+    "quark": "https://pan.quark.cn/s/a0da793caf82"
+  },
+  {
+    "name": "Geek Uninstaller软件卸载工具",
+    "icon-url": "",
+    "introduction": "彻底清除软件残留的绿色卸载工具",
+    "category": ["系统工具>软件管理"],
+    "baidu": "https://pan.baidu.com/s/1LVYsMaqYcyYZaUI0KUVYww?pwd=ui3q",
+    "quark": "https://pan.quark.cn/s/468e9597ded0"
+  }
+]

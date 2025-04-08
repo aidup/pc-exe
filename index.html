@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资源下载页面</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <style>
+       .transition { transition: all 0.3s ease; }
+       .hover-shadow:hover { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+       .hover-scale:hover { transform: scale(1.05); }
+       .sidebar-link:hover { background-color: rgba(0, 0, 0, 0.1); }
+       .search-clear-button { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #999; }
+       .search-clear-button:hover { color: #333; }
+       .sidebar { width: 200px; background-color: #f9fafb; border-right: 1px solid #e5e7eb; padding: 1rem; display: flex; flex-direction: column; overflow-y: auto; position: fixed; top: 0; left: 0; bottom: 0; }
+       .main-content { flex: 1; padding: 1.5rem; background-color: #ffffff; overflow-y: auto; margin-left: 200px; }
+       .page-title { font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-bottom: 1.25rem; }
+       .search-container { position: relative; margin-bottom: 1.5rem; }
+       .search-input { width: 100%; padding: 0.625rem 0.875rem; border: 1px solid #d1d5db; border-radius: 0.375rem; outline: none; transition: border-color 0.3s ease; }
+       .search-input:focus { border-color: #3b82f6; }
+       .resource-card { background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 0.375rem; padding: 1.25rem; margin-bottom: 1.25rem; box-sizing: border-box; display: flex; align-items: flex-start; }
+       .resource-icon { width: 48px; height: 48px; margin-right: 1rem; object-fit: cover; }
+       .resource-title { font-size: 1.125rem; font-weight: 600; color: #1f2937; margin-bottom: 0.5rem; }
+       .resource-category { display: inline-block; font-size: 0.75rem; font-weight: 500; color: #3b82f6; background-color: #eff6ff; padding: 0.25rem 0.5rem; border-radius: 0.25rem; margin-bottom: 0.75rem; }
+       .resource-description { color: #6b7280; margin-bottom: 0.75rem; }
+       .download-link { color: #3b82f6; text-decoration: none; transition: color 0.3s ease; }
+       .download-link:hover { color: #2563eb; text-decoration: underline; }
+       #back-to-top { display: none; position: fixed; bottom: 20px; right: 20px; background-color: #3b82f6; color: white; padding: 10px 15px; border-radius: 50%; cursor: pointer; z-index: 100; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); transition: background-color 0.3s ease; }
+       #back-to-top:hover { background-color: #2563eb; }
+       #resource-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+       @media (max-width: 768px) {
+          .sidebar { width: 120px; padding: 0.75rem; }
+          .main-content { padding: 1rem; margin-left: 120px; }
+          .page-title { font-size: 1.5rem; }
+          .search-input { padding: 0.5rem 0.75rem; }
+          .resource-card { padding: 1rem; }
+          .resource-title { font-size: 1rem; }
+          #resource-container { grid-template-columns: 1fr; }
+       }
+       .subcategory-list { display: none; padding-left: 1rem; }
+       .subcategory-list.active { display: block; }
+    </style>
+</head>
+
+<body class="bg-gray-50 font-sans">
+    <div class="flex">
+        <div class="sidebar">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">分类列表</h2>
+            <a href="#" class="block p-2 rounded sidebar-link" onclick="filterResources('all')">全部</a>
+            <div id="category-list"></div>
+        </div>
+        <div class="main-content">
+            <h1 class="page-title">资源下载列表</h1>
+            <div class="search-container">
+                <input type="text" id="search-input" class="search-input" placeholder="搜索资源">
+                <i class="fa-solid fa-xmark search-clear-button" id="search-clear-button" style="display: none;"></i>
+            </div>
+            <div id="resource-container"></div>
+        </div>
+    </div>
+    <div id="back-to-top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
+    <script>
+        const imgurl = "https://pic1.imgdb.cn/item/67f49fcc88c538a9b5c5c86f.png";
+        const dataUrl = "http://127.0.0.1:12480/1/data.json";
+        let resourcesData = [], allCategories = {};
+
+        async function fetchData() {
+            try {
+                const response = await fetch(dataUrl);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                resourcesData = await response.json();
+                populateCategories();
+                populateResources('all');
+            } catch (error) {
+                console.error('Fetch error:', error);
+            }
+        }
+
+        function populateCategories() {
+            resourcesData.forEach(r => {
+                r.category.forEach(c => {
+                    const [p, ch] = c.split('>');
+                    if (!allCategories[p]) allCategories[p] = new Set();
+                    if (ch) allCategories[p].add(ch);
+                });
+            });
+            const categoryList = document.getElementById('category-list');
+            for (const p in allCategories) {
+                const parentLink = document.createElement('a');
+                parentLink.href = '#';
+                parentLink.className = 'block p-2 rounded sidebar-link';
+                parentLink.textContent = p;
+                parentLink.onclick = function () {
+                    toggleSubmenu(this.nextElementSibling);
+                    filterResources(p);
+                };
+                categoryList.appendChild(parentLink);
+
+                const submenu = document.createElement('div');
+                submenu.className = 'subcategory-list';
+                allCategories[p].forEach(ch => {
+                    const childLink = document.createElement('a');
+                    childLink.href = '#';
+                    childLink.className = 'block p-2 rounded sidebar-link';
+                    childLink.textContent = ch;
+                    childLink.onclick = () => filterResources(`${p}>${ch}`);
+                    submenu.appendChild(childLink);
+                });
+                categoryList.appendChild(submenu);
+            }
+        }
+
+        function toggleSubmenu(submenu) {
+            submenu.classList.toggle('active');
+        }
+
+        function populateResources(category) {
+            const resourceContainer = document.getElementById('resource-container');
+            resourceContainer.innerHTML = '';
+            resourcesData.forEach(r => {
+                const shouldShow = category === 'all' || r.category.some(c => c.includes(category));
+                if (shouldShow) {
+                    const card = document.createElement('div');
+                    card.className = 'resource-card';
+                    card.setAttribute('data-category', r.category.join(' '));
+
+                    const icon = document.createElement('img');
+                    icon.src = r['icon-url'] || imgurl;
+                    icon.alt = '图标';
+                    icon.className = 'resource-icon';
+                    icon.loading = 'lazy';
+                    card.appendChild(icon);
+
+                    const contentDiv = document.createElement('div');
+
+                    const title = document.createElement('h2');
+                    title.className = 'resource-title';
+                    title.textContent = r.name;
+                    contentDiv.appendChild(title);
+
+                    r.category.forEach(c => {
+                        const categorySpan = document.createElement('span');
+                        categorySpan.className = 'resource-category';
+                        categorySpan.textContent = c;
+                        contentDiv.appendChild(categorySpan);
+                    });
+
+                    const description = document.createElement('p');
+                    description.className = 'resource-description';
+                    description.textContent = r.introduction;
+                    contentDiv.appendChild(description);
+
+                    if (r.baidu) {
+                        const baiduLinkP = document.createElement('p');
+                        baiduLinkP.className = 'text-gray-700 mb-4';
+                        baiduLinkP.textContent = '百度网盘：';
+                        const baiduLink = document.createElement('a');
+                        baiduLink.href = r.baidu;
+                        baiduLink.className = 'download-link';
+                        baiduLink.target = '_blank';
+                        baiduLink.textContent = '点击下载';
+                        baiduLinkP.appendChild(baiduLink);
+                        contentDiv.appendChild(baiduLinkP);
+                    }
+
+                    if (r.quark) {
+                        const quarkLinkP = document.createElement('p');
+                        quarkLinkP.className = 'text-gray-700';
+                        quarkLinkP.textContent = '夸克网盘：';
+                        const quarkLink = document.createElement('a');
+                        quarkLink.href = r.quark;
+                        quarkLink.className = 'download-link';
+                        quarkLink.target = '_blank';
+                        quarkLink.textContent = '点击下载';
+                        quarkLinkP.appendChild(quarkLink);
+                        contentDiv.appendChild(quarkLinkP);
+                    }
+
+                    card.appendChild(contentDiv);
+                    resourceContainer.appendChild(card);
+                }
+            });
+        }
+
+        function filterResources(category) {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const resources = document.querySelectorAll('#resource-container > div');
+            resources.forEach(r => {
+                const resourceName = r.querySelector('.resource-title').textContent.toLowerCase();
+                const shouldShow = (category === 'all' || r.getAttribute('data-category').includes(category)) && resourceName.includes(searchTerm);
+                r.style.display = shouldShow ? 'block' : 'none';
+            });
+        }
+
+        function debounce(func, delay) {
+            let timer;
+            return function() {
+                clearTimeout(timer);
+                timer = setTimeout(() => func.apply(this, arguments), delay);
+            };
+        }
+
+        document.getElementById('search-input').addEventListener('input', debounce(function () {
+            const clearButton = document.getElementById('search-clear-button');
+            clearButton.style.display = this.value.length > 0 ? 'block' : 'none';
+            filterResources(getCurrentActiveCategory());
+        }, 300));
+
+        document.getElementById('search-clear-button').addEventListener('click', function () {
+            const searchInput = document.getElementById('search-input');
+            searchInput.value = '';
+            this.style.display = 'none';
+            filterResources(getCurrentActiveCategory());
+        });
+
+        function getCurrentActiveCategory() {
+            const sidebarLinks = document.querySelectorAll('.sidebar-link');
+            for (let i = 0; i < sidebarLinks.length; i++) {
+                if (sidebarLinks[i].classList.contains('active')) {
+                    return sidebarLinks[i].textContent.trim();
+                }
+            }
+            return 'all';
+        }
+
+        window.onscroll = function () {
+            const backToTop = document.getElementById('back-to-top');
+            backToTop.style.display = (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) ? 'block' : 'none';
+        };
+
+        document.getElementById('back-to-top').addEventListener('click', function () {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        });
+
+        fetchData();
+    </script>
+</body>
+
+</html>    
