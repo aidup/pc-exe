@@ -159,7 +159,7 @@
 },
 {
   "name": "Everything v1.4.1.1026",
-  "icon-url": "",
+  "icon-url": "https://pic1.imgdb.cn/item/67f67dab88c538a9b5c7cb55.png",
   "introduction": "基于NTFS日志的毫秒级文件搜索神器[7,8](@ref)",
   "category": ["实用工具>效率提升"],
   "baidu": "https://pan.baidu.com/s/1dFQh8gJvFn61BwipWmj2lA?pwd=gie9",
@@ -167,7 +167,7 @@
 },
 {
   "name": "IObit Uninstaller",
-  "icon-url": "",
+  "icon-url": "https://pic1.imgdb.cn/item/67f67d6c88c538a9b5c7cb36.png",
   "introduction": "支持批量卸载与安装监控的专业卸载工具[12,13](@ref)",
   "category": ["系统工具>软件管理"],
   "baidu": "https://pan.baidu.com/s/13rNLvFHow3DC51iEN6AHLQ?pwd=iz28",
@@ -180,5 +180,29 @@
   "category": ["系统工具>磁盘管理"],
   "baidu": "https://pan.baidu.com/s/1tNpp1SPgvEcj5avi5HxqMw?pwd=jkwg",
   "quark": "https://pan.quark.cn/s/3b692291897c"
+},
+{
+  "name": "Dism++ v10.1.1002.2绿色版",
+  "icon-url": "https://pc3.gtimg.com/softmgr/logo/48/24175_48_1518163525.png",
+  "introduction": "Windows系统精简优化与镜像管理全能工具[1,2,3](@ref)",
+  "category": ["系统工具>系统优化"],
+  "baidu": "https://pan.baidu.com/s/1HENmi4tt3S8SZJ4jB8UT8g?pwd=sizw",
+  "quark": "https://pan.quark.cn/s/1abb4f32fca5"
+},
+{
+  "name": "游戏加加",
+  "icon-url": "https://gamepp.com/public/web/images/nav_logoicon.png",
+  "introduction": "电竞游戏性能监控与网络加速工具[6,7,8](@ref)",
+  "category": ["游戏工具>性能优化"],
+  "baidu": "https://pan.baidu.com/s/1nP6Xtp4Po-DrOENUbto_YQ?pwd=k5jj",
+  "quark": "https://pan.quark.cn/s/1d0c5606f4b8"
+},
+{
+  "name": "Internet Download Manager v6.42.32",
+  "icon-url": "https://pic1.imgdb.cn/item/67f67cbb88c538a9b5c7cad5.png",
+  "introduction": "多线程下载加速与资源嗅探工具[9,10,11](@ref)",
+  "category": ["网络工具>下载加速"],
+  "baidu": "https://pan.baidu.com/s/15q9wsI2LQgurV5gTSKxo-A?pwd=a6y9",
+  "quark": "https://pan.quark.cn/s/96f77f8e2895"
 }
 ]
