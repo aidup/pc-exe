@@ -148,5 +148,37 @@
     "category": ["系统工具>软件管理"],
     "baidu": "https://pan.baidu.com/s/1LVYsMaqYcyYZaUI0KUVYww?pwd=ui3q",
     "quark": "https://pan.quark.cn/s/468e9597ded0"
-  }
+  },
+  {
+  "name": "EasyRCV3一键装机工具",
+  "icon-url": "",
+  "introduction": "支持离线/在线系统重装的全能装机工具，集成USB3.X驱动与Win7 UEFI支持[1,2](@ref)",
+  "category": ["系统工具>系统重装"],
+  "baidu": "https://pan.baidu.com/s/1eb6-18ONPAfV36WNW7cSDg?pwd=2wnc",
+  "quark": "https://pan.quark.cn/s/7df63a3f7f6c"
+},
+{
+  "name": "Everything v1.4.1.1026",
+  "icon-url": "",
+  "introduction": "基于NTFS日志的毫秒级文件搜索神器[7,8](@ref)",
+  "category": ["实用工具>效率提升"],
+  "baidu": "https://pan.baidu.com/s/1dFQh8gJvFn61BwipWmj2lA?pwd=gie9",
+  "quark": ""
+},
+{
+  "name": "IObit Uninstaller",
+  "icon-url": "",
+  "introduction": "支持批量卸载与安装监控的专业卸载工具[12,13](@ref)",
+  "category": ["系统工具>软件管理"],
+  "baidu": "https://pan.baidu.com/s/13rNLvFHow3DC51iEN6AHLQ?pwd=iz28",
+  "quark": ""
+},
+{
+  "name": "傲梅分区助手",
+  "icon-url": "",
+  "introduction": "支持SSD优化与系统迁移的无损分区工具[15,17](@ref)",
+  "category": ["系统工具>磁盘管理"],
+  "baidu": "https://pan.baidu.com/s/1tNpp1SPgvEcj5avi5HxqMw?pwd=jkwg",
+  "quark": "https://pan.quark.cn/s/3b692291897c"
+}
 ]
